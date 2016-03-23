@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Arrows</title>
+	<style>
+
+		canvas {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			display: block;
+		}
+
+	</style>
+</head>
+<body>
+	
+<script>
+	var
+
+	canvas,
+	ctx,
+	width,
+	height,
+
+	frames = 0,
+	score = 0,
+	best = 0,
+
+	currentState,
+	states = {
+		Splash: 0 , Game: 1, Score: 2
+	},
+
+	arrows = {
+		_arrows: [],
+
+		reset: function(){
+
+		},
+
+		update: function(){
+			
+
+		},
+		draw: function( ctx ){
+		
+
+		}
+	}
+
+	function onmousedown( mousePos ){
+
+	}
+
+	function onmouseup( mousePos ){
+
+	}
+
+	function main(){
+		canvas = document.createElement("canvas");
+		width = window.innerWidth;
+		height = window.innerHeight;
+
+
+		if( width > 500 ){
+			width = 320;
+			height = 480;
+			canvas.style.border = "1px solid #000";
+		}
+
+		canvas.addEventListener('onmousedown', function(evt) {
+	        var mousePos = getMousePos(canvas, evt);
+	        onclick(mousePos);
+	      }, false);
+
+		canvas.addEventListener('onmouseup', function(evt) {
+	        var mousePos = getMousePos(canvas, evt);
+	        onclick(mousePos);
+	      }, false);
+
+		canvas.width = width;
+		canvas.height = height;
+		canvas.imageSmoothingEnabled= true;
+		ctx = canvas.getContext('2d');
+		document.body.appendChild(canvas);
+		run();
+
+	}
+
+	function run(){
+		var loop = function(){
+			update();
+			render();
+			window.requestAnimationFrame(loop , canvas);
+		}
+		window.requestAnimationFrame(loop , canvas);
+	}
+
+	function update(){
+
+		frames++;
+		arrow.update(ctx);
+
+	}
+
+	function render(){
+	  
+		arrow.draw(ctx);
+
+	}
+
+	main();
+
+</script>
+
+</body>
+</html>
